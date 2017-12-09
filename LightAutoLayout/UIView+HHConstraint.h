@@ -1,0 +1,57 @@
+//
+//  UIView+HHConstraint.h
+//  LightAutoLayout
+//
+//  Created by 豫风 on 2017/12/7.
+//  Copyright © 2017年 豫风. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface UIView (HHConstraint)
+
+@property (nonatomic, assign, readonly) UIView * top_;
+@property (nonatomic, assign, readonly) UIView * left_;
+@property (nonatomic, assign, readonly) UIView * bott_;
+@property (nonatomic, assign, readonly) UIView * righ_;
+@property (nonatomic, assign, readonly) UIView * widt_;
+@property (nonatomic, assign, readonly) UIView * heit_;
+@property (nonatomic, assign, readonly) UIView * lead_;
+@property (nonatomic, assign, readonly) UIView * trai_;
+@property (nonatomic, assign, readonly) UIView * cent_;
+@property (nonatomic, assign, readonly) UIView * centX;
+@property (nonatomic, assign, readonly) UIView * centY;
+@property (nonatomic, assign, readonly) UIView * size_;
+@property (nonatomic, assign, readonly) UIView * (^equalTo)(UIView *);
+@property (nonatomic, assign, readonly) UIView * (^constant)(CGFloat);
+@property (nonatomic, assign, readonly) UIView * (^constList)(NSNumber *,...);//需要以nil结尾
+@property (nonatomic, assign, readonly) UIView * (^offset)(CGFloat);
+@property (nonatomic, assign, readonly) UIView * (^on_)(void);
+
+/**
+ 快速添加约束
+ */
+@property (nonatomic, assign, readonly) UIView * (^topLeft_)(CGRect);//左上距离父控件、宽高固定
+@property (nonatomic, assign, readonly) UIView * (^topRight_)(CGRect);//右上距离父控件、宽高固定
+@property (nonatomic, assign, readonly) UIView * (^bottomLeft_)(CGRect);//左下距离父控件、宽高固定
+@property (nonatomic, assign, readonly) UIView * (^bottomRight_)(CGRect);//右上距离父控件、宽高固定
+@property (nonatomic, assign, readonly) UIView * (^heightTop_)(CGRect);//左上右距离父控件、高度固定
+@property (nonatomic, assign, readonly) UIView * (^heightBottom_)(CGRect);//左下右距离父控件、高度固定
+@property (nonatomic, assign, readonly) UIView * (^insetFrame_)(CGRect);//约束四周边距,对应左上下右
+@property (nonatomic, assign, readonly) UIView * (^around_)(void);//约束等于父视图
+
+/**
+ 回调约束对象,可后期修改，做动画eg.
+ */
+@property (nonatomic, strong, readonly) NSLayoutConstraint * hh_topCS;
+@property (nonatomic, strong, readonly) NSLayoutConstraint * hh_leftCS;
+@property (nonatomic, strong, readonly) NSLayoutConstraint * hh_bottomCS;
+@property (nonatomic, strong, readonly) NSLayoutConstraint * hh_rightCS;
+@property (nonatomic, strong, readonly) NSLayoutConstraint * hh_widthCS;
+@property (nonatomic, strong, readonly) NSLayoutConstraint * hh_heightCS;
+@property (nonatomic, strong, readonly) NSLayoutConstraint * hh_leadingCS;
+@property (nonatomic, strong, readonly) NSLayoutConstraint * hh_trailingCS;
+@property (nonatomic, strong, readonly) NSLayoutConstraint * hh_centerXCS;
+@property (nonatomic, strong, readonly) NSLayoutConstraint * hh_centerYCS;
+
+@end
