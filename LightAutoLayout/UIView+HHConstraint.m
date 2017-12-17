@@ -402,7 +402,15 @@ static char * const relativeViewKey         = "relativeViewKey";
     [self.equalToArrayM removeAllObjects];
     [self.offsetArrayM removeAllObjects];
     [self.layoutArrayM removeAllObjects];
-    self.relativeView = nil;
+    if (self.relativeView) {
+        [self.relativeView.equalToArrayM removeAllObjects];
+        [self.relativeView.offsetArrayM removeAllObjects];
+        [self.relativeView.layoutArrayM removeAllObjects];
+        self.relativeView.layoutArrayM = nil;
+        self.relativeView.offsetArrayM = nil;
+        self.relativeView.equalToArrayM = nil;
+        self.relativeView = nil;
+    }
 }
 
 - (void)installAllConstraint
