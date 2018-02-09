@@ -13,11 +13,11 @@
 		5093C4971FD96E10009846A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5093C4961FD96E10009846A4 /* Assets.xcassets */; };
 		5093C49A1FD96E10009846A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5093C4981FD96E10009846A4 /* LaunchScreen.storyboard */; };
 		5093C49D1FD96E10009846A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5093C49C1FD96E10009846A4 /* main.m */; };
-		5093C4A61FD96E56009846A4 /* UIView+HHConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 5093C4A41FD96E56009846A4 /* UIView+HHConstraint.m */; };
+		5093C4A61FD96E56009846A4 /* UIView+HHLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 5093C4A41FD96E56009846A4 /* UIView+HHLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5093C48A1FD96E10009846A4 /* LightAutoLayoutDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightAutoLayoutDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5093C48A1FD96E10009846A4 /* HHLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HHLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5093C48D1FD96E10009846A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5093C48E1FD96E10009846A4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5093C4901FD96E10009846A4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -27,8 +27,8 @@
 		5093C4991FD96E10009846A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5093C49B1FD96E10009846A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5093C49C1FD96E10009846A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5093C4A41FD96E56009846A4 /* UIView+HHConstraint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HHConstraint.m"; sourceTree = "<group>"; };
-		5093C4A51FD96E56009846A4 /* UIView+HHConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HHConstraint.h"; sourceTree = "<group>"; };
+		5093C4A41FD96E56009846A4 /* UIView+HHLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+HHLayout.m"; sourceTree = "<group>"; };
+		5093C4A51FD96E56009846A4 /* UIView+HHLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+HHLayout.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,8 +45,8 @@
 		5093C4811FD96E10009846A4 = {
 			isa = PBXGroup;
 			children = (
-				5093C4A31FD96E1F009846A4 /* LightAutoLayout */,
-				5093C48C1FD96E10009846A4 /* LightAutoLayoutDemo */,
+				5093C4A31FD96E1F009846A4 /* HHLayout */,
+				5093C48C1FD96E10009846A4 /* HHLayoutDemo */,
 				5093C48B1FD96E10009846A4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,12 +54,12 @@
 		5093C48B1FD96E10009846A4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5093C48A1FD96E10009846A4 /* LightAutoLayoutDemo.app */,
+				5093C48A1FD96E10009846A4 /* HHLayout.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5093C48C1FD96E10009846A4 /* LightAutoLayoutDemo */ = {
+		5093C48C1FD96E10009846A4 /* HHLayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
 				5093C48D1FD96E10009846A4 /* AppDelegate.h */,
@@ -72,24 +72,24 @@
 				5093C49B1FD96E10009846A4 /* Info.plist */,
 				5093C49C1FD96E10009846A4 /* main.m */,
 			);
-			path = LightAutoLayoutDemo;
+			path = HHLayoutDemo;
 			sourceTree = "<group>";
 		};
-		5093C4A31FD96E1F009846A4 /* LightAutoLayout */ = {
+		5093C4A31FD96E1F009846A4 /* HHLayout */ = {
 			isa = PBXGroup;
 			children = (
-				5093C4A51FD96E56009846A4 /* UIView+HHConstraint.h */,
-				5093C4A41FD96E56009846A4 /* UIView+HHConstraint.m */,
+				5093C4A51FD96E56009846A4 /* UIView+HHLayout.h */,
+				5093C4A41FD96E56009846A4 /* UIView+HHLayout.m */,
 			);
-			path = LightAutoLayout;
+			path = HHLayout;
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5093C4891FD96E10009846A4 /* LightAutoLayoutDemo */ = {
+		5093C4891FD96E10009846A4 /* HHLayout */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5093C4A01FD96E10009846A4 /* Build configuration list for PBXNativeTarget "LightAutoLayoutDemo" */;
+			buildConfigurationList = 5093C4A01FD96E10009846A4 /* Build configuration list for PBXNativeTarget "HHLayout" */;
 			buildPhases = (
 				5093C4861FD96E10009846A4 /* Sources */,
 				5093C4871FD96E10009846A4 /* Frameworks */,
@@ -99,9 +99,9 @@
 			);
 			dependencies = (
 			);
-			name = LightAutoLayoutDemo;
+			name = HHLayout;
 			productName = LightAutoLayoutDemo;
-			productReference = 5093C48A1FD96E10009846A4 /* LightAutoLayoutDemo.app */;
+			productReference = 5093C48A1FD96E10009846A4 /* HHLayout.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -119,7 +119,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5093C4851FD96E10009846A4 /* Build configuration list for PBXProject "LightAutoLayoutDemo" */;
+			buildConfigurationList = 5093C4851FD96E10009846A4 /* Build configuration list for PBXProject "HHLayout" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -132,7 +132,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5093C4891FD96E10009846A4 /* LightAutoLayoutDemo */,
+				5093C4891FD96E10009846A4 /* HHLayout */,
 			);
 		};
 /* End PBXProject section */
@@ -156,7 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5093C4921FD96E10009846A4 /* ViewController.m in Sources */,
-				5093C4A61FD96E56009846A4 /* UIView+HHConstraint.m in Sources */,
+				5093C4A61FD96E56009846A4 /* UIView+HHLayout.m in Sources */,
 				5093C49D1FD96E10009846A4 /* main.m in Sources */,
 				5093C48F1FD96E10009846A4 /* AppDelegate.m in Sources */,
 			);
@@ -294,10 +294,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3P263BEBSC;
-				INFOPLIST_FILE = LightAutoLayoutDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/HHLayoutDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.eruiglobal.LightAutoLayoutDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eruiglobal.HHLayoutDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -309,10 +309,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3P263BEBSC;
-				INFOPLIST_FILE = LightAutoLayoutDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/HHLayoutDemo/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.eruiglobal.LightAutoLayoutDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eruiglobal.HHLayoutDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -321,7 +321,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5093C4851FD96E10009846A4 /* Build configuration list for PBXProject "LightAutoLayoutDemo" */ = {
+		5093C4851FD96E10009846A4 /* Build configuration list for PBXProject "HHLayout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5093C49E1FD96E10009846A4 /* Debug */,
@@ -330,7 +330,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5093C4A01FD96E10009846A4 /* Build configuration list for PBXNativeTarget "LightAutoLayoutDemo" */ = {
+		5093C4A01FD96E10009846A4 /* Build configuration list for PBXNativeTarget "HHLayout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5093C4A11FD96E10009846A4 /* Debug */,

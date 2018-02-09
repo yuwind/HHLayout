@@ -1,12 +1,12 @@
 //
-//  UIView+HHConstraint.m
-//  LightAutoLayout
+//  UIView+HHLayout.m
+//  HHLayout
 //
 //  Created by 豫风 on 2017/12/7.
 //  Copyright © 2017年 豫风. All rights reserved.
 //
 
-#import "UIView+HHConstraint.h"
+#import "UIView+HHLayout.h"
 #import <objc/runtime.h>
 
 static char * const topConstraintKey        = "topConstraintKey";
@@ -44,7 +44,7 @@ static char * const relativeViewKey         = "relativeViewKey";
 
 @end
 
-@implementation UIView (HHConstraint)
+@implementation UIView (HHLayout)
 
 - (void)setRelativeView:(UIView *)relativeView
 {

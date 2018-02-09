@@ -1,6 +1,6 @@
 //
-//  UIView+HHConstraint.h
-//  LightAutoLayout
+//  UIView+HHLayout.h
+//  HHLayout
 //
 //  Created by 豫风 on 2017/12/7.
 //  Copyright © 2017年 豫风. All rights reserved.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (HHConstraint)
+@interface UIView (HHLayout)
 
 @property (nonatomic, assign, readonly) UIView * top_;
 @property (nonatomic, assign, readonly) UIView * left_;
