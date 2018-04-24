@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
-  s.name         = 'HHProperty' 
+  s.name         = 'HHLayout' 
   s.version      = '1.0.0'
   s.summary      = 'Layout'
-  s.s.description = 'Lightweight automatic layout, support for multi-level mapping'
+  s.description  = 'Lightweight automatic layout, support for multi-level mapping'
   s.homepage     = 'https://github.com/yuwind/HHLayout/wiki'
   s.license      = 'MIT'
   s.author       = { 'yuwind' => '991810133@qq.com' }
