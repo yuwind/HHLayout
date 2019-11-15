@@ -32,7 +32,6 @@ typedef NS_ENUM(NSUInteger, ContentPriority) {
 /**
  约束方式
  */
-
 @property (nonatomic, assign, readonly) UIView * top_;
 @property (nonatomic, assign, readonly) UIView * left_;
 @property (nonatomic, assign, readonly) UIView * bott_;
@@ -55,7 +54,7 @@ typedef NS_ENUM(NSUInteger, ContentPriority) {
 @property (nonatomic, assign, readonly) UIView * (^constant)(CGFloat);
 #warning 必须以nil结尾 ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 @property (nonatomic, assign, readonly) UIView * (^constList)(NSNumber *,...);//需要以nil结尾
-@property (nonatomic, assign, readonly) UIView * (^offset)(CGFloat);
+@property (nonatomic, assign, readonly) UIView * (^offset_)(CGFloat);
 @property (nonatomic, assign, readonly) UIView * (^on_)(void);
 @property (nonatomic, assign, readonly) UIView * (^removeAll)(void);
 
@@ -68,7 +67,7 @@ typedef NS_ENUM(NSUInteger, ContentPriority) {
 @property (nonatomic, assign, readonly) UIView * (^bottomRight_)(CGRect);//右上距离父控件、宽高固定
 @property (nonatomic, assign, readonly) UIView * (^heightTop_)(CGRect);//左上右距离父控件、高度固定
 @property (nonatomic, assign, readonly) UIView * (^heightBottom_)(CGRect);//左下右距离父控件、高度固定
-@property (nonatomic, assign, readonly) UIView * (^insetFrame_)(CGRect);//约束四周边距,对应左上下右
+@property (nonatomic, assign, readonly) UIView * (^insetFrame_)(UIEdgeInsets);//约束四周边距,对应左上下右
 @property (nonatomic, assign, readonly) UIView * (^around_)(void);//约束等于父视图
 
 /**

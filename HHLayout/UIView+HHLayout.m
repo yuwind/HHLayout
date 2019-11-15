@@ -505,7 +505,7 @@ static NSInteger relation_ = 0;
     };
 }
 
-- (UIView *(^)(CGFloat))offset
+- (UIView *(^)(CGFloat))offset_
 {
     return ^UIView *(CGFloat offset){
         [self.offsetArrayM addObject:@(offset)];
@@ -574,12 +574,12 @@ static NSInteger relation_ = 0;
         return self;
     };
 }
-- (UIView *(^)(CGRect))insetFrame_
+- (UIView *(^)(UIEdgeInsets))insetFrame_
 {
-    return ^UIView *(CGRect rect){
+    return ^UIView *(UIEdgeInsets inset){
         self.top_.left_.bott_.righ_.
-        constant(rect.origin.y).constant(rect.origin.x).
-        constant(-rect.size.width).constant(-rect.size.height).
+        constant(inset.top).constant(inset.left).
+        constant(-inset.bottom).constant(-inset.right).
         on_();
         return self;
     };

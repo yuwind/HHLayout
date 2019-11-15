@@ -38,7 +38,7 @@
     label2.textAlignment = NSTextAlignmentCenter;
     
     //label2的左边等于label1的右边同时偏移10point，宽、高、centerY等于label1
-    label2.top_.centX.widt_.heit_.equalTo(label1.bott_).offset(20).on_();
+    label2.top_.centX.widt_.heit_.equalTo(label1.bott_).offset_(20).on_();
     
     
     UILabel *label3 = [UILabel new];
@@ -57,7 +57,7 @@
     label4.textAlignment = NSTextAlignmentCenter;
     
 //label4的左边等于label3的右边同时偏移10point，宽和高等于100，centerY等于label3
-    label4.left_.widt_.heit_.centY.equalTo(label3.righ_).offset(10).constList(@100,@100,nil).on_();
+    label4.left_.widt_.heit_.centY.equalTo(label3.righ_).offset_(10).constList(@100,@100,nil).on_();
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
