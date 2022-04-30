@@ -48,129 +48,123 @@ static char * const isHeightSelfKey         = "isHeightSelfKey";
 
 @end
 
-static NSInteger relation_ = 0;
+static NSLayoutRelation relation_ = NSLayoutRelationEqual;
 
 @implementation UIView (HHLayout)
 
-- (void)setX:(CGFloat)x
-{
+- (void)setX:(CGFloat)x {
     CGRect tempFrame = self.frame;
     tempFrame.origin.x = x;
     self.frame = tempFrame;
 }
-- (CGFloat)x
-{
+
+- (CGFloat)x {
     return self.frame.origin.x;
 }
-- (void)setY:(CGFloat)y
-{
+
+- (void)setY:(CGFloat)y {
     CGRect tempFrame = self.frame;
     tempFrame.origin.y = y;
     self.frame = tempFrame;
 }
-- (CGFloat)y
-{
+
+- (CGFloat)y {
     return self.frame.origin.y;
 }
-- (void)setWidth:(CGFloat)width
-{
+
+- (void)setWidth:(CGFloat)width {
     CGRect tempFrame = self.frame;
     tempFrame.size.width = width;
     self.frame = tempFrame;
 }
-- (CGFloat)width
-{
+
+- (CGFloat)width {
     return self.frame.size.width;
 }
 
-- (void)setHeight:(CGFloat)height
-{
+- (void)setHeight:(CGFloat)height {
     CGRect tempFrame = self.frame;
     tempFrame.size.height = height;
     self.frame = tempFrame;
 }
-- (CGFloat)height
-{
+
+- (CGFloat)height {
     return self.frame.size.height;
 }
-- (void)setSize:(CGSize)size
-{
+
+- (void)setSize:(CGSize)size {
     CGRect frame = self.frame;
     frame.size = size;
     self.frame = frame;
 }
-- (CGSize)size
-{
+
+- (CGSize)size {
     return self.frame.size;
 }
-- (void)setOrigin:(CGPoint)origin
-{
+
+- (void)setOrigin:(CGPoint)origin {
     CGRect frame = self.frame;
     frame.origin = origin;
     self.frame = frame;
 }
-- (CGPoint)origin
-{
+
+- (CGPoint)origin {
     return self.frame.origin;
 }
-- (void)setMaxX:(CGFloat)maxX
-{
+
+- (void)setMaxX:(CGFloat)maxX {
     CGRect tempFrame = self.frame;
     tempFrame.origin.x = maxX - self.width;
     self.frame = tempFrame;
 }
 
-- (CGFloat)maxX
-{
+- (CGFloat)maxX {
     return self.x+self.width;
 }
 
-- (void)setMaxY:(CGFloat)maxY
-{
+- (void)setMaxY:(CGFloat)maxY {
     CGRect tempFrame = self.frame;
     tempFrame.origin.y = maxY - self.height;
     self.frame = tempFrame;
 }
-- (CGFloat)maxY
-{
+
+- (CGFloat)maxY {
     return self.y+self.height;
 }
-- (CGFloat)centerX
-{
+
+- (CGFloat)centerX {
     return self.center.x;
 }
-- (void)setCenterX:(CGFloat)centerX
-{
+
+- (void)setCenterX:(CGFloat)centerX {
     CGPoint centerPoint = self.center;
     centerPoint.x = centerX;
     self.center = centerPoint;
 }
--(CGFloat)centerY
-{
+
+-(CGFloat)centerY {
     return self.center.y;
 }
-- (void)setCenterY:(CGFloat)centerY
-{
+
+- (void)setCenterY:(CGFloat)centerY {
     CGPoint centerPoint = self.center;
     centerPoint.y = centerY;
     self.center = centerPoint;
 }
 
-
-- (void)setRelativeView:(UIView *)relativeView
-{
+- (void)setRelativeView:(UIView *)relativeView {
     objc_setAssociatedObject(self, relativeViewKey, relativeView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (UIView *)relativeView
-{
+
+- (UIView *)relativeView {
     return objc_getAssociatedObject(self, relativeViewKey);
 }
-- (void)setOffsetArrayM:(NSMutableArray<NSNumber *> *)offsetArrayM
-{
+
+- (void)setOffsetArrayM:(NSMutableArray<NSNumber *> *)offsetArrayM {
     objc_setAssociatedObject(self, offsetArrayMKey, offsetArrayM, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSMutableArray<NSNumber *> *)offsetArrayM
-{
+
+- (NSMutableArray<NSNumber *> *)offsetArrayM {
     NSMutableArray *offsetArrayM = objc_getAssociatedObject(self, offsetArrayMKey);
     if (offsetArrayM) {
         return offsetArrayM;
@@ -179,12 +173,12 @@ static NSInteger relation_ = 0;
     self.offsetArrayM = offsetArrayM;
     return offsetArrayM;
 }
-- (void)setLayoutArrayM:(NSMutableArray<NSNumber *> *)layoutArrayM
-{
+
+- (void)setLayoutArrayM:(NSMutableArray<NSNumber *> *)layoutArrayM {
     objc_setAssociatedObject(self, layoutArrayMKey, layoutArrayM, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSMutableArray<NSNumber *> *)layoutArrayM
-{
+
+- (NSMutableArray<NSNumber *> *)layoutArrayM {
     NSMutableArray *layoutArrayM = objc_getAssociatedObject(self, layoutArrayMKey);
     if (layoutArrayM) {
         return layoutArrayM;
@@ -193,12 +187,12 @@ static NSInteger relation_ = 0;
     self.layoutArrayM = layoutArrayM;
     return layoutArrayM;
 }
-- (void)setEqualToArrayM:(NSMutableArray<NSNumber *> *)equalToArrayM
-{
+
+- (void)setEqualToArrayM:(NSMutableArray<NSNumber *> *)equalToArrayM {
     objc_setAssociatedObject(self, equalToArrayMKey, equalToArrayM, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSMutableArray<NSNumber *> *)equalToArrayM
-{
+
+- (NSMutableArray<NSNumber *> *)equalToArrayM {
     NSMutableArray *equalToArrayM = objc_getAssociatedObject(self, equalToArrayMKey);
     if (equalToArrayM) {
         return equalToArrayM;
@@ -207,165 +201,160 @@ static NSInteger relation_ = 0;
     self.equalToArrayM = equalToArrayM;
     return equalToArrayM;
 }
-- (void)setHh_topCS:(NSLayoutConstraint *)hh_topCS
-{
+
+- (void)setHh_topCS:(NSLayoutConstraint *)hh_topCS {
     objc_setAssociatedObject(self, topConstraintKey, hh_topCS, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSLayoutConstraint *)hh_topCS
-{
+
+- (NSLayoutConstraint *)hh_topCS {
     return objc_getAssociatedObject(self, topConstraintKey);
 }
-- (void)setHh_leftCS:(NSLayoutConstraint *)hh_leftCS
-{
+
+- (void)setHh_leftCS:(NSLayoutConstraint *)hh_leftCS {
     objc_setAssociatedObject(self, leftConstraintKey, hh_leftCS, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSLayoutConstraint *)hh_leftCS
-{
+
+- (NSLayoutConstraint *)hh_leftCS {
     return objc_getAssociatedObject(self, leftConstraintKey);
 }
-- (void)setHh_bottomCS:(NSLayoutConstraint *)hh_bottomCS
-{
+
+- (void)setHh_bottomCS:(NSLayoutConstraint *)hh_bottomCS {
     objc_setAssociatedObject(self, bottomConstraintKey, hh_bottomCS, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSLayoutConstraint *)hh_bottomCS
-{
+
+- (NSLayoutConstraint *)hh_bottomCS {
     return objc_getAssociatedObject(self, bottomConstraintKey);
 }
-- (void)setHh_rightCS:(NSLayoutConstraint *)hh_rightCS
-{
+
+- (void)setHh_rightCS:(NSLayoutConstraint *)hh_rightCS {
     objc_setAssociatedObject(self, rightConstraintKey, hh_rightCS, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSLayoutConstraint *)hh_rightCS
-{
+
+- (NSLayoutConstraint *)hh_rightCS {
     return objc_getAssociatedObject(self, rightConstraintKey);
 }
-- (void)setHh_widthCS:(NSLayoutConstraint *)hh_widthCS
-{
+
+- (void)setHh_widthCS:(NSLayoutConstraint *)hh_widthCS {
     objc_setAssociatedObject(self, widthConstraintKey, hh_widthCS, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSLayoutConstraint *)hh_widthCS
-{
+
+- (NSLayoutConstraint *)hh_widthCS {
     return objc_getAssociatedObject(self, widthConstraintKey);
 }
-- (void)setHh_heightCS:(NSLayoutConstraint *)hh_heightCS
-{
+
+- (void)setHh_heightCS:(NSLayoutConstraint *)hh_heightCS {
     objc_setAssociatedObject(self, heightConstraintKey, hh_heightCS, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSLayoutConstraint *)hh_heightCS
-{
+
+- (NSLayoutConstraint *)hh_heightCS {
     return objc_getAssociatedObject(self, heightConstraintKey);
 }
-- (void)setHh_leadingCS:(NSLayoutConstraint *)hh_leadingCS
-{
+
+- (void)setHh_leadingCS:(NSLayoutConstraint *)hh_leadingCS {
     objc_setAssociatedObject(self, leadingConstraintKey, hh_leadingCS, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSLayoutConstraint *)hh_leadingCS
-{
+
+- (NSLayoutConstraint *)hh_leadingCS {
     return objc_getAssociatedObject(self, leadingConstraintKey);
 }
-- (void)setHh_trailingCS:(NSLayoutConstraint *)hh_trailingCS
-{
+
+- (void)setHh_trailingCS:(NSLayoutConstraint *)hh_trailingCS {
     objc_setAssociatedObject(self, trailingConstraintKey, hh_trailingCS, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSLayoutConstraint *)hh_trailingCS
-{
+
+- (NSLayoutConstraint *)hh_trailingCS {
     return objc_getAssociatedObject(self, trailingConstraintKey);
 }
-- (void)setHh_centerXCS:(NSLayoutConstraint *)hh_centerXCS
-{
+
+- (void)setHh_centerXCS:(NSLayoutConstraint *)hh_centerXCS {
     objc_setAssociatedObject(self, centerXConstraintKey, hh_centerXCS, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSLayoutConstraint *)hh_centerXCS
-{
+
+- (NSLayoutConstraint *)hh_centerXCS {
     return objc_getAssociatedObject(self, centerXConstraintKey);
 }
-- (void)setHh_centerYCS:(NSLayoutConstraint *)hh_centerYCS
-{
+
+- (void)setHh_centerYCS:(NSLayoutConstraint *)hh_centerYCS {
     objc_setAssociatedObject(self, centerYConstraintKey, hh_centerYCS, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
-- (NSLayoutConstraint *)hh_centerYCS
-{
+
+- (NSLayoutConstraint *)hh_centerYCS {
     return objc_getAssociatedObject(self, centerYConstraintKey);
 }
 
-- (void)setIsWidthSelf:(BOOL)isWidthSelf
-{
+- (void)setIsWidthSelf:(BOOL)isWidthSelf {
     objc_setAssociatedObject(self, isWidthSelfKey, @(isWidthSelfKey), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (BOOL)isWidthSelf
-{
+- (BOOL)isWidthSelf {
     return [objc_getAssociatedObject(self, isWidthSelfKey) boolValue];
 }
 
-- (void)setIsHeightSelf:(BOOL)isHeightSelf
-{
+- (void)setIsHeightSelf:(BOOL)isHeightSelf {
     objc_setAssociatedObject(self, isHeightSelfKey, @(isHeightSelfKey), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (BOOL)isHeightSelf
-{
+- (BOOL)isHeightSelf {
     return [objc_getAssociatedObject(self, isHeightSelfKey) boolValue];
 }
 
-- (UIView *)top_
-{
+- (UIView *)top_ {
     if (![self.layoutArrayM containsObject:@(NSLayoutAttributeTop)]) {
         [self.layoutArrayM addObject:@(NSLayoutAttributeTop)];
     }
     return self;
 }
-- (UIView *)left_
-{
+
+- (UIView *)left_ {
     if (![self.layoutArrayM containsObject:@(NSLayoutAttributeLeft)]) {
         [self.layoutArrayM addObject:@(NSLayoutAttributeLeft)];
     }
     return self;
 }
-- (UIView *)bott_
-{
+
+- (UIView *)bott_ {
     if (![self.layoutArrayM containsObject:@(NSLayoutAttributeBottom)]) {
         [self.layoutArrayM addObject:@(NSLayoutAttributeBottom)];
     }
     return self;
 }
-- (UIView *)righ_
-{
+
+- (UIView *)righ_ {
     if (![self.layoutArrayM containsObject:@(NSLayoutAttributeRight)]) {
         [self.layoutArrayM addObject:@(NSLayoutAttributeRight)];
     }
     return self;
 }
-- (UIView *)widt_
-{
+
+- (UIView *)widt_ {
     if (![self.layoutArrayM containsObject:@(NSLayoutAttributeWidth)]) {
         [self.layoutArrayM addObject:@(NSLayoutAttributeWidth)];
     }
     return self;
 }
-- (UIView *)heit_
-{
+
+- (UIView *)heit_ {
     if (![self.layoutArrayM containsObject:@(NSLayoutAttributeHeight)]) {
         [self.layoutArrayM addObject:@(NSLayoutAttributeHeight)];
     }
     return self;
 }
-- (UIView *)lead_
-{
+
+- (UIView *)lead_ {
     if (![self.layoutArrayM containsObject:@(NSLayoutAttributeLeading)]) {
         [self.layoutArrayM addObject:@(NSLayoutAttributeLeading)];
     }
     return self;
 }
-- (UIView *)trai_
-{
+
+- (UIView *)trai_ {
     if (![self.layoutArrayM containsObject:@(NSLayoutAttributeTrailing)]) {
         [self.layoutArrayM addObject:@(NSLayoutAttributeTrailing)];
     }
     return self;
 }
-- (UIView *)cent_
-{
+
+- (UIView *)cent_ {
     if (![self.layoutArrayM containsObject:@(NSLayoutAttributeCenterX)]) {
         [self.layoutArrayM addObject:@(NSLayoutAttributeCenterX)];
     }
@@ -374,22 +363,22 @@ static NSInteger relation_ = 0;
     }
     return self;
 }
-- (UIView *)centX
-{
+
+- (UIView *)centX {
     if (![self.layoutArrayM containsObject:@(NSLayoutAttributeCenterX)]) {
         [self.layoutArrayM addObject:@(NSLayoutAttributeCenterX)];
     }
     return self;
 }
-- (UIView *)centY
-{
+
+- (UIView *)centY {
     if (![self.layoutArrayM containsObject:@(NSLayoutAttributeCenterY)]) {
         [self.layoutArrayM addObject:@(NSLayoutAttributeCenterY)];
     }
     return self;
 }
-- (UIView *)size_
-{
+
+- (UIView *)size_ {
     if (![self.layoutArrayM containsObject:@(NSLayoutAttributeWidth)]) {
         [self.layoutArrayM addObject:@(NSLayoutAttributeWidth)];
     }
@@ -399,16 +388,15 @@ static NSInteger relation_ = 0;
     return self;
 }
 
-- (UIView *(^)(CGFloat))rate_wh
-{
+- (UIView *(^)(CGFloat))rate_wh {
     return ^UIView *(CGFloat rate_wh){
         NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeHeight multiplier:rate_wh constant:0];
         [self addConstraint:constraint];
         return self;
     };
 }
-- (UIView *(^)(CGFloat))rate_hw
-{
+
+- (UIView *(^)(CGFloat))rate_hw {
     return ^UIView *(CGFloat rate_wh){
         NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeWidth multiplier:rate_wh constant:0];
         [self addConstraint:constraint];
@@ -416,8 +404,8 @@ static NSInteger relation_ = 0;
     };
 }
 
-- (UIView *(^)(ContentPriority))widPriority  //值越高，越不容易拉伸
-{
+//值越高，越不容易拉伸
+- (UIView *(^)(ContentPriority))widPriority {
     return ^UIView *(ContentPriority priority){
         switch (priority) {
             case ContentPriorityDefault:
@@ -439,8 +427,8 @@ static NSInteger relation_ = 0;
     };
 }
 
-- (UIView *(^)(ContentPriority))higPriority  //值越高，越不容易拉伸
-{
+//值越高，越不容易拉伸
+- (UIView *(^)(ContentPriority))higPriority {
     return ^UIView *(ContentPriority priority){
         switch (priority) {
             case ContentPriorityDefault:
@@ -460,40 +448,37 @@ static NSInteger relation_ = 0;
     };
 }
 
-- (UIView *(^)(UIView *))lessThan
-{
+- (UIView *(^)(UIView *))lessThan {
     return ^UIView *(UIView *view){
-        relation_ = -1;
-        self.relativeView = view;
-        return self;
-    };
-}
-- (UIView *(^)(UIView *))equalTo
-{
-    return ^UIView *(UIView *view){
-        self.relativeView = view;
-        return self;
-    };
-}
-- (UIView *(^)(UIView *))greatThan
-{
-    return ^UIView *(UIView *view){
-        relation_ = 1;
+        relation_ = NSLayoutRelationLessThanOrEqual;
         self.relativeView = view;
         return self;
     };
 }
 
-- (UIView *(^)(CGFloat))constant
-{
+- (UIView *(^)(UIView *))equalTo {
+    return ^UIView *(UIView *view){
+        self.relativeView = view;
+        return self;
+    };
+}
+
+- (UIView *(^)(UIView *))greatThan {
+    return ^UIView *(UIView *view){
+        relation_ = NSLayoutRelationGreaterThanOrEqual;
+        self.relativeView = view;
+        return self;
+    };
+}
+
+- (UIView *(^)(CGFloat))constant {
     return ^UIView *(CGFloat equal){
         [self.equalToArrayM addObject:@(equal)];
         return self;
     };
 }
 
-- (UIView *(^)(NSNumber *, ...))constList
-{
+- (UIView *(^)(NSNumber *, ...))constList {
     return ^UIView *(NSNumber *first,...){
         va_list args;
         va_start(args, first);
@@ -505,16 +490,14 @@ static NSInteger relation_ = 0;
     };
 }
 
-- (UIView *(^)(CGFloat))offset_
-{
+- (UIView *(^)(CGFloat))offset_ {
     return ^UIView *(CGFloat offset){
         [self.offsetArrayM addObject:@(offset)];
         return self;
     };
 }
 
-- (UIView *(^)(CGRect))topLeft_
-{
+- (UIView *(^)(CGRect))topLeft_ {
     return ^UIView *(CGRect rect){
         self.top_.left_.widt_.heit_.
         constant(rect.origin.y).constant(rect.origin.x).
@@ -523,8 +506,8 @@ static NSInteger relation_ = 0;
         return self;
     };
 }
-- (UIView *(^)(CGRect))topRight_
-{
+
+- (UIView *(^)(CGRect))topRight_ {
     return ^UIView *(CGRect rect){
         self.top_.righ_.widt_.heit_.
         constant(rect.origin.y).constant(-rect.origin.x).
@@ -534,8 +517,7 @@ static NSInteger relation_ = 0;
     };
 }
 
-- (UIView *(^)(CGRect))bottomLeft_
-{
+- (UIView *(^)(CGRect))bottomLeft_ {
     return ^UIView *(CGRect rect){
         self.bott_.left_.widt_.heit_.
         constant(-rect.origin.y).constant(rect.origin.x).
@@ -544,8 +526,8 @@ static NSInteger relation_ = 0;
         return self;
     };
 }
-- (UIView *(^)(CGRect))bottomRight_
-{
+
+- (UIView *(^)(CGRect))bottomRight_ {
     return ^UIView *(CGRect rect){
         self.bott_.righ_.widt_.heit_.
         constant(-rect.origin.y).constant(-rect.origin.x).
@@ -554,8 +536,8 @@ static NSInteger relation_ = 0;
         return self;
     };
 }
-- (UIView *(^)(CGRect))heightTop_
-{
+
+- (UIView *(^)(CGRect))heightTop_ {
     return ^UIView *(CGRect rect){
         self.top_.left_.heit_.righ_.
         constant(rect.origin.y).constant(rect.origin.x).
@@ -564,8 +546,8 @@ static NSInteger relation_ = 0;
         return self;
     };
 }
-- (UIView *(^)(CGRect))heightBottom_
-{
+
+- (UIView *(^)(CGRect))heightBottom_ {
     return ^UIView *(CGRect rect){
         self.bott_.left_.heit_.righ_.
         constant(rect.origin.y).constant(rect.origin.x).
@@ -574,8 +556,8 @@ static NSInteger relation_ = 0;
         return self;
     };
 }
-- (UIView *(^)(UIEdgeInsets))insetFrame_
-{
+
+- (UIView *(^)(UIEdgeInsets))insetFrame_ {
     return ^UIView *(UIEdgeInsets inset){
         self.top_.left_.bott_.righ_.
         constant(inset.top).constant(inset.left).
@@ -584,28 +566,26 @@ static NSInteger relation_ = 0;
         return self;
     };
 }
-- (UIView *(^)(void))around_
-{
+
+- (UIView *(^)(void))around_ {
     return ^UIView *(){
         self.left_.top_.bott_.righ_.equalTo(self.superview).on_();
         return self;
     };
 }
 
-- (UIView *(^)(void))removeAll
-{
+- (UIView *(^)(void))removeAll {
     return ^UIView *(){
         [self removeAllConstraint_];
         return self;
     };
 }
 
-- (void)removeAllConstraint_
-{
+- (void)removeAllConstraint_ {
     if (self.hh_widthCS) {
         if (self.isWidthSelf) {
             [self removeConstraint:self.hh_widthCS];
-        }else{
+        } else {
             [self.superview removeConstraint:self.hh_widthCS];
         }
         self.hh_widthCS = nil;
@@ -613,7 +593,7 @@ static NSInteger relation_ = 0;
     if (self.hh_heightCS) {
         if (self.isHeightSelf) {
             [self removeConstraint:self.hh_heightCS];
-        }else{
+        } else {
             [self.superview removeConstraint:self.hh_heightCS];
         }
         self.hh_heightCS = nil;
@@ -653,8 +633,7 @@ static NSInteger relation_ = 0;
     }
 }
 
-- (UIView *(^)(void))on_
-{
+- (UIView *(^)(void))on_ {
     return ^UIView *(){
         [self installAllConstraint];
         [self resetLayoutInitialInfo];
@@ -662,9 +641,8 @@ static NSInteger relation_ = 0;
     };
 }
 
-- (void)resetLayoutInitialInfo
-{
-    relation_ = 0;
+- (void)resetLayoutInitialInfo {
+    relation_ = NSLayoutRelationEqual;
     [self.equalToArrayM removeAllObjects];
     [self.offsetArrayM removeAllObjects];
     [self.layoutArrayM removeAllObjects];
@@ -679,113 +657,120 @@ static NSInteger relation_ = 0;
     }
 }
 
-- (void)installAllConstraint
-{
+- (void)installAllConstraint {
     self.translatesAutoresizingMaskIntoConstraints = NO;
     if (self.relativeView) {
         int index = -1;
-        for (int i = 0; i<self.layoutArrayM.count; i++) {
+        for (int i = 0; i < self.layoutArrayM.count; i++) {
             NSInteger relative = self.relativeView.layoutArrayM.count>i?self.relativeView.layoutArrayM[i].integerValue:self.layoutArrayM[i].integerValue;
             CGFloat constant = self.offsetArrayM.count>i?[self countConstant:i index:&index]:index==-1?self.equalToArrayM.count>i?self.equalToArrayM[i].floatValue:0.0f:self.equalToArrayM.count>=i-index?self.equalToArrayM[i-index-1].floatValue:0.0f;
             [self readyDeploy:self.layoutArrayM[i].integerValue relative:relative view:self.relativeView equalTo:constant];
         }
-    }else if (self.layoutArrayM.count) {
-        for (int i = 0; i<self.layoutArrayM.count; i++) {
+    } else if (self.layoutArrayM.count) {
+        for (int i = 0; i < self.layoutArrayM.count; i++) {
             CGFloat constant = self.equalToArrayM.count>i?self.equalToArrayM[i].floatValue:self.equalToArrayM.lastObject.floatValue;
             [self readyDeploy:self.layoutArrayM[i].integerValue relative:self.layoutArrayM[i].integerValue view:nil equalTo:constant];
         }
     }
 }
-- (CGFloat)countConstant:(int)i index:(int *)index
-{
+
+- (CGFloat)countConstant:(int)i index:(int *)index {
     *index = i;
     return self.offsetArrayM[i].floatValue;
 }
 
-- (void)readyDeploy:(NSInteger)source relative:(NSInteger)relative view:(UIView *)view equalTo:(CGFloat)constant
-{
+- (void)readyDeploy:(NSInteger)source relative:(NSInteger)relative view:(UIView *)view equalTo:(CGFloat)constant {
     switch (source) {
-        case NSLayoutAttributeLeft:
-        {
-            if(self.hh_leftCS){[self.superview removeConstraint:self.hh_leftCS];}
+        case NSLayoutAttributeLeft: {
+            if (self.hh_leftCS) {
+                [self.superview removeConstraint:self.hh_leftCS];
+            }
             self.hh_leftCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeLeft relatedBy:relation_ toItem:view?:self.superview attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_leftCS];
         }
             break;
-        case NSLayoutAttributeRight:
-        {
-            if(self.hh_rightCS){[self.superview removeConstraint:self.hh_rightCS];}
+        case NSLayoutAttributeRight: {
+            if (self.hh_rightCS) {
+                [self.superview removeConstraint:self.hh_rightCS];
+            }
             self.hh_rightCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeRight relatedBy:relation_ toItem:view?:self.superview attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_rightCS];
         }
             break;
-        case NSLayoutAttributeTop:
-        {
-            if(self.hh_topCS){[self.superview removeConstraint:self.hh_topCS];}
+        case NSLayoutAttributeTop: {
+            if (self.hh_topCS) {
+                [self.superview removeConstraint:self.hh_topCS];
+            }
             self.hh_topCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeTop relatedBy:relation_ toItem:view?:self.superview attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_topCS];
         }
             break;
-        case NSLayoutAttributeBottom:
-        {
-            if(self.hh_bottomCS){[self.superview removeConstraint:self.hh_bottomCS];}
+        case NSLayoutAttributeBottom: {
+            if (self.hh_bottomCS) {
+                [self.superview removeConstraint:self.hh_bottomCS];
+            }
             self.hh_bottomCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeBottom relatedBy:relation_ toItem:view?:self.superview attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_bottomCS];
         }
             break;
-        case NSLayoutAttributeLeading:
-        {
-            if(self.hh_leadingCS){[self.superview removeConstraint:self.hh_leadingCS];}
+        case NSLayoutAttributeLeading: {
+            if (self.hh_leadingCS) {
+                [self.superview removeConstraint:self.hh_leadingCS];
+            }
             self.hh_leadingCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeLeading relatedBy:relation_ toItem:view?:self.superview attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_leadingCS];
         }
             break;
-        case NSLayoutAttributeTrailing:
-        {
-            if(self.hh_trailingCS){[self.superview removeConstraint:self.hh_trailingCS];}
+        case NSLayoutAttributeTrailing: {
+            if (self.hh_trailingCS) {
+                [self.superview removeConstraint:self.hh_trailingCS];
+            }
             self.hh_trailingCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeTrailing relatedBy:relation_ toItem:view?:self.superview attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_trailingCS];
         }
             break;
-        case NSLayoutAttributeWidth:
-        {
-            if(self.hh_widthCS){
+        case NSLayoutAttributeWidth: {
+            if (self.hh_widthCS) {
                 if (self.equalToArrayM.count && constant) {
                     self.isWidthSelf = YES;
-                }else if (view){
+                } else if (view){
                     self.isWidthSelf = NO;
-                }else{
+                } else {
                     self.isWidthSelf = YES;
-                } [self.equalToArrayM.count&&constant?self:view?self.superview:self removeConstraint:self.hh_widthCS];}
+                }
+                [self.equalToArrayM.count&&constant?self:view?self.superview:self removeConstraint:self.hh_widthCS];
+            }
             self.hh_widthCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth relatedBy:relation_ toItem:self.equalToArrayM.count&&constant?nil:view?:nil attribute:relative multiplier:1.0 constant:constant];
             [self.equalToArrayM.count&&constant?self:view?self.superview:self addConstraint:self.hh_widthCS];
         }
             break;
-        case NSLayoutAttributeHeight:
-        {
+        case NSLayoutAttributeHeight: {
             if(self.hh_heightCS){
                 if (self.equalToArrayM.count && constant) {
                     self.isHeightSelf = YES;
-                }else if (view){
+                } else if (view){
                     self.isHeightSelf = NO;
-                }else{
+                } else {
                     self.isHeightSelf = YES;
                 }
-                [self.equalToArrayM.count&&constant?self:view?self.superview:self removeConstraint:self.hh_heightCS];}
+                [self.equalToArrayM.count&&constant?self:view?self.superview:self removeConstraint:self.hh_heightCS];
+            }
             self.hh_heightCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight relatedBy:relation_ toItem:self.equalToArrayM.count&&constant?nil:view?:nil attribute:relative multiplier:1.0 constant:constant];
             [self.equalToArrayM.count&&constant?self:view?self.superview:self addConstraint:self.hh_heightCS];
         }
             break;
-        case NSLayoutAttributeCenterX:
-        {
-            if(self.hh_centerXCS){[self.superview removeConstraint:self.hh_centerXCS];}
+        case NSLayoutAttributeCenterX: {
+            if (self.hh_centerXCS) {
+                [self.superview removeConstraint:self.hh_centerXCS];
+            }
             self.hh_centerXCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterX relatedBy:relation_ toItem:view?:self.superview attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_centerXCS];
         }
             break;
-        case NSLayoutAttributeCenterY:
-        {
-            if(self.hh_centerYCS){[self.superview removeConstraint:self.hh_centerYCS];}
+        case NSLayoutAttributeCenterY: {
+            if (self.hh_centerYCS) {
+                [self.superview removeConstraint:self.hh_centerYCS];
+            }
             self.hh_centerYCS = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeCenterY relatedBy:relation_ toItem:view?:self.superview attribute:relative multiplier:1.0 constant:constant];
             [self.superview addConstraint:self.hh_centerYCS];
         }
